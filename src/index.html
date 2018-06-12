@@ -2,43 +2,45 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Caesar Cipher by Mir</title>
+    <title>Caesar Cipher 4.0.1</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
   </head>
   <body>
     <header>
-        <h1>CIFRADO CESAR 4.Mir</h1>
+        <h1>CIFRADO CESAR by.Mir</h1>
     </header>
     <hr>
     <section>
       <form id="cifradoCesar">
-        <div>  
-            <label id = "pDecodificada">Frase Sin Cifrar: <br> <input type="text" id="palabraUno" placeholder="Puedes escribir aquí" required="required" max ="100"></label>
-            <input type="button"  onclick= "codificar()" value="Codificar">                
+        <div>
+          <h3 class="estilo">Frase Sin Cifrar:</h3>  <br> <textarea name="pDecodificada" id="palabraUno" cols="30" rows="10" placeholder="Puedes escribir aquí" required="required"></textarea>
+         </div>
+        <br><br>
+        
+        <div>
+          <h3 class="estilo"> Ingresa numero secreto:</h3> <br> <input id="numero"min ="1" max="1000" type="number" required="required" autofocus="autofocus">
         </div>
-        <br><br><br>
+        <br><br>
 
         <div>
-          Ingresa numero secreto: <br> <input id="numero"min ="1" max="1000" type="number" required="required" autofocus="autofocus">
+          <h3 class="estilo">Frase Sin Cifrar: </h3> <br> <textarea name="pCodificada" id="palabraDos" cols="30" rows="10" placeholder="Puedes escribir aquí" required="required"></textarea>                    
         </div>
-        <br><br><br>
+        <br><br>
 
-        <div>
-          <label id = "pCodificada">Frase Cifrada: <br> <input type="text" id="palabraDos" placeholder="Puedes escribe aquí" required="required"></label>
-          <input type="button"  onclick= "deCodificar()" value="Decodificar">                          
-        </div>
-        <br><br><br>
-     </form>
-     <div>
-        <form>
-          <input value="Borrar" onclick="history.go(0)" type="button">
-        </form>
-    </div>
-
-    </section>
+        <div id = "botones" >
+          <form>
+            <input type="button"  id= "encode" value="Codificar">
+            <input type="button"  id= "decode" value="Decodificar">
+            <input value="Borrar" onclick="history.go(0)" type="button">
+          </form>
+      </div>
+      <br><br><br>
+      </section>
     
     <div id="root"></div>
-    <script src="cipher.js"></script>
     <script src="index.js"></script>
+    <script src="cipher.js"></script>
+    
   </body>
 </html>
