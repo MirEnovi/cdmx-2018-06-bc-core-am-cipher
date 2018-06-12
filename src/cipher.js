@@ -1,83 +1,82 @@
 //el naegador tendra el comportamiento de cipher
 window.cipher = {
+    offset: 33,
+    encode : (offset, string) => {
+        let  result = "";
+        for (let i=0; i<string.length; i++){
+            console.log(offset, string);
+            let x = string[i].charCodeAt();
+            console.log ("letra en ASCII (x)= " + x)
+            let formula;
+            if (x==32) {
+                formula = 32; 
+             //MAYUSCULAS   
+            } else if (x>=65 && x<=90) {
+                console.log("formula= (x-65 + parseInt(offset)) % 26 + 65");
+                console.log ("letra en ASCII (x)= " + x);
+                console.log ("offset =" + parseInt(offset));
+                formula = (x-65 + parseInt(offset)) % 26 + 65;
+                console.log("formula="+ formula + "\n");
+
+                //minusculas
+            } else if (x>=97 && x<=122) {
+                console.log("formula= (x-97 + parseInt(offset)) % 26 + 97");
+                console.log ("letra en ASCII (x)= " + x);
+                console.log ("offset =" + parseInt(offset));
+                formula = (x-97 + parseInt(offset)) % 26 + 97;
+                console.log("formula="+ formula + "\n");
+            } else {
+                formula = x;
+            }
+        
+        result += String.fromCharCode (formula);
+        console.log("resulta = " + result);            
+        }
+                    
+        stringb.defaultValue =  result;
+        
+        return 
+
+    },
+   
+    decode : (offset, stringb) => {
+        let  result = "";
+        console.log(offset, stringb);
+        
+        for (let i=0; i<stringb.length; i++){
+            //x es el numero de letra en codigo Ascii
+            let x = stringb[i].charCodeAt();          
+            //variable formula
+            let formula;
+            if (x==32) {
+                formula = 32;
+                console.log("formula="+ formula + "\n");
+             //MAYUSCULAS   
+            } else if (x>=65 && x<=90) {
+                console.log("formula= (x-65 - parseInt(offset)) % 26 + 65");
+                console.log ("letra en ASCII (x)= " + x);
+                console.log ("offset =" + parseInt(offset));
+                formula = (x-65 - parseInt(offset)) % 26 + 65;
+                console.log("formula="+ formula + "\n");
+
+                //minusculas
+            } else if (x>=97 && x<=122) {
+                console.log("formula= (x-97 - parseInt(offset)) % 26 + 97");
+                console.log ("letra en ASCII (x)= " + x);
+                console.log ("offset =" + parseInt(offset));
+                formula = (x-97 - parseInt(offset)) % 26 + 97;
+                console.log("formula="+ formula + "\n");
+            } else {
+                formula = x;
+            }
+            result += String.fromCharCode (formula);
+            console.log(result);
+        
+        }
+        string.innerHTML =  result;
+        
+        return 
+    }
+   
 
 };
-//variables para    imprimir mensaje cifrado
- let strCodificadoR = document.getElementById ("palabraDos");
- let strDecodificadoR = document.getElementById ("palabraUno");
- 
-function codificar() {
-    //variable pata obtener mensaje sin codificar
-    let strDecodificado = document.getElementById ("palabraUno").value.toLowerCase();
-    //Cambiar todo a minusculas
-    //strDecodificado.toLowerCase();
-    //variable para obtener numero para codificar
-    let numC = parseInt(document.getElementById("numero").value);
-    console.log("NUMERO " + numC%26); 
-       //se declara la variable que arrojara el resultado con un string vacio
-       let  res = "";
-       //variable para formula para sacar el numero que debe de recorrerse
-       let xDecod;
-    for (let i=0; i<strDecodificado.length; i++){
-        //variable para obtener el numero de posicion de la letra
-        let x = strDecodificado[i];
-        //para guardar en x el numero ASCII que corresponde
-        x= x.charCodeAt(); 
-              
-        if (x==32) {
-            xDecod = 32;          
-        }
-        else {
-            //Formula para sacar el numero que debe de recorrerse
-            xDecod = (x-97 + numC) % 26 + 97;  
-            
-        }
-        //para guardar la letra nueva codificada con un contador que aumenta el resultado
-        res += String.fromCharCode (xDecod);
-        //corroborar en consola
-        
-        console.log(res);  
-             
-    }
-    // defaultValue me ayuda a cambiar el valor de un input
-    let res1 = res[0].toUpperCase()
-    strCodificadoR.defaultValue = res1 + res.slice(1,res.length);
-        
-}
-
-function deCodificar() {
-    //variable pata obtener mensaje sin codificar
-    let strCodificado = document.getElementById ("palabraDos").value.toLowerCase();
-    //variable para obtener numero para codificar
-    let numC = parseInt(document.getElementById("numero").value);
-    console.log(numC%26);
-       //se declara la variable que arrojara el resultado con un string vacio
-       let  res = "";
-       //variable para formula para sacar el numero que debe de recorrerse
-       let xDecod;
-     for (let i=0; i<strCodificado.length; i++){
-        //Cambiar todo a minusculas
-        //strCodificado.toLowerCase();
-        //variable para obtener el numero de posicion de la letra
-        let x = strCodificado[i];
-        //para guardar en x el numero ASCII que corresponde
-        x= x.charCodeAt();        
-        if (x==32) {
-            xDecod = 32;          
-        }
-        else {
-            //Formula para sacar el numero que debe de recorrerse  AQUI ESTA LA PAPA
-            xDecod = (x-97 - numC) % 26 + 97;  
-            
-        }
-        //para guardar la letra nueva codificada con un contador que aumenta el resultado
-        res += String.fromCharCode (xDecod);
-        //corroborar en consola
-        console.log(res);  
-             
-    }
-    // defaultValue me ayuda a cambiar el valor de un input
-    let res1= res[0].toUpperCase()
-    strDecodificadoR.defaultValue = res1 + res.slice(1,res.length) ;        
-}
-
