@@ -4,6 +4,8 @@ let stringb= document.getElementById ("palabraDos");
 let offset = document.getElementById ("numero");
 let button1 = document.getElementById ("encode");
 let button2 = document.getElementById ("decode");
+let button3 = document.getElementById ("cipherWhitOffset");
+// let resulText = document.getElementById ("hackerEdit");
 
 
 button1.addEventListener ("click", event =>{
@@ -11,18 +13,23 @@ button1.addEventListener ("click", event =>{
         offset.value, 
         string.value 
     );  
-    
+
+    stringb.innerHTML = encodeValueClick;
 }); 
 
 button2.addEventListener ("click", event =>{
-    let encodeValueClick2 = window.cipher.decode(
-        offset.value, 
-        stringb.value 
-    );  
-    
-}); 
+    let decodeValueClick = window.cipher.decode(
+        offset.value,
+        stringb.value
+    );
+    string.innerHTML = decodeValueClick;
+});
 
-
-// button2.addEventListener ("click", "decode()");
-
-
+button3.addEventListener ("click", event =>{
+    let cipherWhitOffset = window.cipher.createCipherWithOffset(
+        offset.value
+    );
+    console.log (cipherWhitOffset);
+    // resulText.innerHTML = cipherWhitOffset;
+  
+});

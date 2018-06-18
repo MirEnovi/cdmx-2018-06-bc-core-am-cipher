@@ -1,82 +1,99 @@
 //el naegador tendra el comportamiento de cipher
 window.cipher = {
-    offset: 33,
-    encode : (offset, string) => {
-        let  result = "";
-        for (let i=0; i<string.length; i++){
-            console.log(offset, string);
-            let x = string[i].charCodeAt();
-            console.log ("letra en ASCII (x)= " + x)
-            let formula;
-            if (x==32) {
-                formula = 32; 
-             //MAYUSCULAS   
-            } else if (x>=65 && x<=90) {
-                console.log("formula= (x-65 + parseInt(offset)) % 26 + 65");
-                console.log ("letra en ASCII (x)= " + x);
-                console.log ("offset =" + parseInt(offset));
-                formula = (x-65 + parseInt(offset)) % 26 + 65;
-                console.log("formula="+ formula + "\n");
+    offset: 1,
+    string:"",
 
-                //minusculas
+    //funcion codificar
+    encode : (offset, string) => {
+        //variable para resultado final
+        let  result = "";
+        // console.log(offset, string);
+                                                                                                              
+        // creamos un for que codificara cada letra del string                                                                                                
+        for (let i=0; i<string.length; i++){
+            //Creamos dos variables, x para el numero ASCII de la letra
+            //y variable formula para la conversion
+            let x = string[i].charCodeAt();
+            let formula;
+           
+            if (x>=65 && x<=90) {
+                //MAYUSCULAS  
+                formula = (x-65 + parseInt(offset)) % 26 + 65;
+                               
             } else if (x>=97 && x<=122) {
-                console.log("formula= (x-97 + parseInt(offset)) % 26 + 97");
-                console.log ("letra en ASCII (x)= " + x);
-                console.log ("offset =" + parseInt(offset));
+                 //minusculas
                 formula = (x-97 + parseInt(offset)) % 26 + 97;
-                console.log("formula="+ formula + "\n");
+
             } else {
+                // signos y espacio no se codifican
                 formula = x;
             }
-        
-        result += String.fromCharCode (formula);
-        console.log("resulta = " + result);            
+        //Acumulador de resultado.
+        result += String.fromCharCode (formula); 
+        // console.log(result);          
         }
-                    
-        stringb.defaultValue =  result;
+        //salida de la funcion devolviendo result           
+        return result;
+    },
+
+    //Funcion decodificar   
+    decode : (offset, stringb) => {
+        //variable para resultado final
+        let  result = "";
+        // console.log(offset, stringb);
         
-        return 
+        // creamos un for que codificara cada letra del string
+        for (let i=0; i<stringb.length; i++){
+            //Creamos dos variables, x para el numero ASCII de la letra
+            //y variable formula para la conversion        
+            let x = stringb[i].charCodeAt();          
+            let formula;
+            
+            if (x>=65 && x<=90) {
+                // MAYUSCULAS                                            
+                formula = (x-90 - parseInt(offset)) % 26 + 90;
+                
+            } else if (x>=97 && x<=122) {
+                //minusculas
+                formula = x-122 - (parseInt(offset) % 26 )+ 122;
+                
+            } else {
+                //espacio y signos no se decodifican
+                formula = x;
+            }
+            //acumulador de resultado
+            result += String.fromCharCode (formula);
+            // console.log(result);
+        }
+        //salida de la funcion devolviendo result     
+        return result
+    },
+
+    /*
+    createCipherWithOffset : (offset) => {
+
+        return
+        cipher.encode (string),
+        cipher.decode (string)
+    },*/
+
+    //hacker edition
+    createCipherWithOffset : (offset) =>  {
+        //variables que seran propiedades del objeto a devolver
+        let codifica;
+        let decodifica;
+        //variables que contienen las fraces a codificar y decodificar 
+        let string = document.getElementById("palabraUno");
+        let stringb = document.getElementById("palabraDos");
+        
+        //retornamos un objeto con dos funciones encode y decode (que tomamos de el objeto cipher)
+        //los cuales resiven el string y usan el offset de la funcion padre. 
+       return objetoCipher = {
+            codifica: window.cipher.encode(offset, string.value),
+
+            decodifica: window.cipher.decode(offset, stringb.value)
+        };
 
     },
-   
-    decode : (offset, stringb) => {
-        let  result = "";
-        console.log(offset, stringb);
-        
-        for (let i=0; i<stringb.length; i++){
-            //x es el numero de letra en codigo Ascii
-            let x = stringb[i].charCodeAt();          
-            //variable formula
-            let formula;
-            if (x==32) {
-                formula = 32;
-                console.log("formula="+ formula + "\n");
-             //MAYUSCULAS   
-            } else if (x>=65 && x<=90) {
-                console.log("formula= (x-65 - parseInt(offset)) % 26 + 65");
-                console.log ("letra en ASCII (x)= " + x);
-                console.log ("offset =" + parseInt(offset));
-                formula = (x-65 - parseInt(offset)) % 26 + 65;
-                console.log("formula="+ formula + "\n");
-
-                //minusculas
-            } else if (x>=97 && x<=122) {
-                console.log("formula= (x-97 - parseInt(offset)) % 26 + 97");
-                console.log ("letra en ASCII (x)= " + x);
-                console.log ("offset =" + parseInt(offset));
-                formula = (x-97 - parseInt(offset)) % 26 + 97;
-                console.log("formula="+ formula + "\n");
-            } else {
-                formula = x;
-            }
-            result += String.fromCharCode (formula);
-            console.log(result);
-        
-        }
-        string.innerHTML =  result;
-        
-        return 
-    }
-   
 
 };

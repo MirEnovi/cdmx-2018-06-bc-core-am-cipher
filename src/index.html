@@ -2,41 +2,57 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Caesar Cipher 4.0.1</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
+    <title>Caesar Cipher MLS 5.0.1</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sofadi+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/fontello.css">
   </head>
   <body>
     <header>
-        <h1>CIFRADO CESAR by.Mir</h1>
+        <h1 id ="headerEdit" class = "icon-glass" >My Little Secrets By.Mir</h1>
+        <h4>¿Planeando una fiesta? Ponerse de acuerdo para la ¡¡SUPER PARTY!! sin que el festejado o la festejada se enteren ya no es un problema...  </h4>
     </header>
     <hr>
-    <section>
-      <form id="cifradoCesar">
-        <div>
-          <h3 class="estilo">Frase Sin Cifrar:</h3>  <br> <textarea name="pDecodificada" id="palabraUno" cols="30" rows="10" placeholder="Puedes escribir aquí" required="required"></textarea>
-         </div>
-        <br><br>
-        
-        <div>
-          <h3 class="estilo"> Ingresa numero secreto:</h3> <br> <input id="numero"min ="1" max="1000" type="number" required="required" autofocus="autofocus">
-        </div>
-        <br><br>
 
-        <div>
-          <h3 class="estilo">Frase Sin Cifrar: </h3> <br> <textarea name="pCodificada" id="palabraDos" cols="30" rows="10" placeholder="Puedes escribir aquí" required="required"></textarea>                    
-        </div>
-        <br><br>
-
-        <div id = "botones" >
-          <form>
-            <input type="button"  id= "encode" value="Codificar">
-            <input type="button"  id= "decode" value="Decodificar">
-            <input value="Borrar" onclick="history.go(0)" type="button">
-          </form>
+    <section id="instrucciones">
+      <h3>
+        Instruciones: <br> Esta es una aplicación que te permite cifrar mensajes que quieres que sean secretos para enviarlos junto con una clave numérica; la persona que lo recibe puede acceder a la página, copiar el mensaje en el recuadro de “Mensaje Secreto” y obtener el mensaje original en el recuadro de “Mensaje Original”
+      </h3>
+    </section>
+    
+    <section id = "numeroyBotones">
+      <div>
+        <h3> Ingresa la clave numérica:</h3>
+        <input type="number" id="numero" min="1" max="1000" required>  
       </div>
-      <br><br><br>
-      </section>
+      
+      <div>
+        <form>
+          <input type ="button" class="botones" id = "encode" value = "Codificar">
+          <input type = "button"  class = "botones" id = "decode" value = "Decodificar">
+          <input value = "Borrar" class="botones" onclick = "history.go(0)" type="button">
+          <input type="button" class="botones" id="cipherWhitOffset" value="Hacker edit">
+        </form>
+      </div>
+
+    </section>
+    
+    <section>
+      <div id = "cajaDeTextUno">
+        <p class = "icon-lock-open" class="estilo">Aquí va el  mensaje original:</p> 
+        <textarea name="pDecodificada" id="palabraUno" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea>
+      </div>
+               
+      <div id = "cajaDeTextDos" >
+        <p class = "icon-lock" class="estilo">Aqui va el mensaje secreto: </p> 
+        <textarea name="pCodificada" id="palabraDos" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea>                    
+      </div>
+
+      <!--div>
+        <textarea name="Hacker edition" id="hackerEdit" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea> 
+      </div-->
+    </section>
     
     <div id="root"></div>
     <script src="index.js"></script>
