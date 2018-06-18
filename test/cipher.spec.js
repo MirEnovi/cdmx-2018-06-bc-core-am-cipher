@@ -37,9 +37,7 @@ describe('cipher', () => {
     });
 
     it('debería retornar un objeto con dos funciones (encode y decode) con offset fijado', () => {
-      assert.equal(typeof cipher.createCipherWithOffset(33), "")
+      assert.equal(cipher.createCipherWithOffset(33), '{codifica: "ovsh", decodifica: "hola"}')
     });
-
   });
-
 });
