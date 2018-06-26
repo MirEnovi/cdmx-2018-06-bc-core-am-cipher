@@ -20,13 +20,27 @@
         Instruciones: <br> Esta es una aplicación que te permite cifrar mensajes que quieres que sean secretos para enviarlos junto con una clave numérica; la persona que lo recibe puede acceder a la página, copiar el mensaje en el recuadro de “Mensaje Secreto” y obtener el mensaje original en el recuadro de “Mensaje Original”
       </h3>
     </section>
-    
+
+    <section>
+      <div id = "cajaDeTextUno">
+        <p class = "icon-lock-open estilo">Aquí va el  mensaje original:</p> 
+        <textarea name="pDecodificada" id="palabraUno" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea>
+      </div>
+               
+      <div id = "cajaDeTextDos" >
+        <p class = "icon-lock estilo">Aqui va el mensaje secreto: </p> 
+        <textarea name="pCodificada" id="palabraDos" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea>                    
+      </div>
+
+      <textarea id="hacker"></textarea>
+    </section>
+
     <section id = "numeroyBotones">
       <div>
         <h3> Ingresa la clave numérica:</h3>
         <input type="number" id="numero" min="1" max="1000" required>  
       </div>
-      
+
       <div>
         <form>
           <input type ="button" class="botones" id = "encode" value = "Codificar">
@@ -36,22 +50,6 @@
         </form>
       </div>
 
-    </section>
-    
-    <section>
-      <div id = "cajaDeTextUno">
-        <p class = "icon-lock-open" class="estilo">Aquí va el  mensaje original:</p> 
-        <textarea name="pDecodificada" id="palabraUno" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea>
-      </div>
-               
-      <div id = "cajaDeTextDos" >
-        <p class = "icon-lock" class="estilo">Aqui va el mensaje secreto: </p> 
-        <textarea name="pCodificada" id="palabraDos" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea>                    
-      </div>
-
-      <!--div>
-        <textarea name="Hacker edition" id="hackerEdit" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea> 
-      </div-->
     </section>
     
     <div id="root"></div>

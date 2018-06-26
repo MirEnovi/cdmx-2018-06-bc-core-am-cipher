@@ -5,7 +5,7 @@ let offset = document.getElementById ("numero");
 let button1 = document.getElementById ("encode");
 let button2 = document.getElementById ("decode");
 let button3 = document.getElementById ("cipherWhitOffset");
-// let resulText = document.getElementById ("hackerEdit");
+let resulText = document.getElementById ("hacker");
 
 
 button1.addEventListener ("click", event =>{
@@ -30,6 +30,6 @@ button3.addEventListener ("click", event =>{
         offset.value
     );
     console.log (cipherWhitOffset);
-    // resulText.innerHTML = cipherWhitOffset;
+    resulText.defaultValue = cipherWhitOffset;
   
 });

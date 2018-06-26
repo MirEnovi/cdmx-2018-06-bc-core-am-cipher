@@ -1,7 +1,5 @@
 //el naegador tendra el comportamiento de cipher
 window.cipher = {
-    offset: 1,
-    string:"",
 
     //funcion codificar
     encode : (offset, string) => {
@@ -55,7 +53,7 @@ window.cipher = {
                 
             } else if (x>=97 && x<=122) {
                 //minusculas
-                formula = x-122 - (parseInt(offset) % 26 )+ 122;
+                formula = (x-122 - parseInt(offset)) % 26 + 122;
                 
             } else {
                 //espacio y signos no se decodifican
@@ -69,13 +67,6 @@ window.cipher = {
         return result
     },
 
-    /*
-    createCipherWithOffset : (offset) => {
-
-        return
-        cipher.encode (string),
-        cipher.decode (string)
-    },*/
 
     //hacker edition
     createCipherWithOffset : (offset) =>  {
