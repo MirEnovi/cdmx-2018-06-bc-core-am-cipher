@@ -1,6 +1,8 @@
 // llamados 
 const container = document.getElementById('content');
 const containerResult = document.getElementById('result');
+const reload = document.getElementById('reload');
+
 
 // creacion de elementos para mensaje a cifrar
 const descripcionCipher = document.createElement('label');
@@ -26,11 +28,13 @@ stringB.placeholder = 'Mensaje Decifrado';
 
 // creacion de elementos para clave secreta
 const descripcionOffset = document.createElement('label');
-// const iconOffset = document.createElement('i');
-// iconOffset.className = 'material-icons';
-// iconOffset.innerHTML = 'enhanced_encryption';
-// descripcionOffset.appendChild(iconOffset);
-descripcionOffset.innerHTML = '<h6>Ingresa aqui tu clave numerica secreta</h6>';
+
+const iconOffset = document.createElement('i');
+iconOffset.className = 'material-icons';
+iconOffset.innerHTML = 'enhanced_encryption <h6>Clave numerica secreta</h6>';
+descripcionOffset.appendChild(iconOffset);
+
+// descripcionOffset.innerHTML = '<h6>Ingresa aqui tu clave numerica secreta</h6>';
 descripcionOffset.className = 'brown-text text-darken-2';
 
 const offset = document.createElement('input');
@@ -42,12 +46,13 @@ offset.type = 'number';
 const button1 = document.createElement('button');
 button1.innerHTML = 'Cifrar';
 button1.style = 'font-weight: bold';
-button1.className = 'btn light-blue lighten-3 brown-text';
+button1.className = 'btn light-blue lighten-3 brown-text col s5 m4 offset-s1 offset-m3';
 const button2 = document.createElement('button');
 button2.innerHTML = 'Deifrar';
 button2.style = 'font-weight: bold';
-button2.className = 'btn light-blue lighten-3 brown-text';
+button2.className = 'btn light-blue lighten-3 brown-text col s5 m4 offset-s1 offset-m1';
 const containerButtons = document.createElement('div');
+containerButtons.className = 'row';
 
 // Agregando elementos a div container
 containerButtons.appendChild(button1);
@@ -63,9 +68,6 @@ container.appendChild(descripcionOffset);
 container.appendChild(offset);
 
 container.appendChild(containerButtons);
-container.appendChild(button1);
-container.appendChild(button2);
-
 
 // let string = document.getElementById('palabraUno');
 // let stringb = document.getElementById('palabraDos');
@@ -75,7 +77,7 @@ container.appendChild(button2);
 // let button3 = document.getElementById('cipherWhitOffset');
 // let resulText = document.getElementById('hacker');
 
-
+// funcion para llamar a cipher.ecode
 const encodeClick = () => {
   const resultEncode = window.cipher.encode(
     offset.value,
@@ -86,10 +88,8 @@ const encodeClick = () => {
   containerResult.innerHTML = resultEncode;
 };
 
-button1.addEventListener('click', encodeClick);
-
+// funcion para llamar a cipher.decode
 const decodeClick = () => {
-  // console.log(offset.value, stringB.value);
   const resultDecode = window.cipher.decode(
     offset.value,
     stringB.value
@@ -97,4 +97,13 @@ const decodeClick = () => {
   containerResult.innerHTML = resultDecode;
 };
 
+// funcion recargar la pagina
+const reloadpage = () => {
+  location.href = ('index.html');
+};
+
+// Eventos de botones
+button1.addEventListener('click', encodeClick);
 button2.addEventListener('click', decodeClick);
+reload.addEventListener('click', reloadpage);
+
