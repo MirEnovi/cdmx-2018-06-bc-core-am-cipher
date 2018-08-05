@@ -24,7 +24,7 @@ const stringB = document.createElement('input');
 stringB.id = 'text-decipher';
 stringB.className = 'brown-text text-lighten-3';
 stringB.type = 'text';
-stringB.placeholder = 'Mensaje Decifrado';
+stringB.placeholder = 'Mensaje Cifrado';
 
 // creacion de elementos para clave secreta
 const descripcionOffset = document.createElement('label');
@@ -79,22 +79,36 @@ container.appendChild(containerButtons);
 
 // funcion para llamar a cipher.ecode
 const encodeClick = () => {
-  const resultEncode = window.cipher.encode(
-    offset.value,
-    string.value
-  );
-  console.log(resultEncode);
-
-  containerResult.innerHTML = resultEncode;
+  if (offset.value && string.value) {
+    const resultEncode = window.cipher.encode(
+      offset.value,
+      string.value
+    );
+    containerResult.innerHTML = resultEncode;
+  } else {
+    swal({
+      type: 'error',
+      title: 'Oops...¡Hay un problema!',
+      text: 'Deberías escribir un mensaje en el recuadro de "mensaje original" y un numéro en "Clave numérica". Intentalo de nuevo'
+    });
+  }
 };
 
 // funcion para llamar a cipher.decode
 const decodeClick = () => {
-  const resultDecode = window.cipher.decode(
-    offset.value,
-    stringB.value
-  );
-  containerResult.innerHTML = resultDecode;
+  if (offset.value && string.value) {
+    const resultDecode = window.cipher.decode(
+      offset.value,
+      stringB.value
+    );
+    containerResult.innerHTML = resultDecode;
+  } else {
+    swal({
+      type: 'error',
+      title: 'Oops...¡Hay un problema!',
+      text: 'Deberías escribir un mensaje en el recuadro de "mensaje cifrado" y un numéro en "Clave numérica". Intentalo de nuevo'
+    });
+  }
 };
 
 // funcion recargar la pagina
@@ -106,4 +120,3 @@ const reloadpage = () => {
 button1.addEventListener('click', encodeClick);
 button2.addEventListener('click', decodeClick);
 reload.addEventListener('click', reloadpage);
-
