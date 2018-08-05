@@ -1,60 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Caesar Cipher MLS 5.0.1</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Da" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Sofadi+One" rel="stylesheet">
-    <link rel="stylesheet" href="css/fontello.css">
-  </head>
-  <body>
-    <header>
-        <h1 id ="headerEdit" class = "icon-glass" >My Little Secrets By.Mir</h1>
-        <h4>¿Planeando una fiesta? Ponerse de acuerdo para la ¡¡SUPER PARTY!! sin que el festejado o la festejada se enteren ya no es un problema...  </h4>
+<html lang="en">
+
+<head>
+  <!-- meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- titulo -->
+  <title>Caesar Cipher MLS 5.0.2</title>
+  <!-- font de la pagina -->
+  <link href="https://fonts.googleapis.com/css?family=Sofadi+One" rel="stylesheet">
+  <!-- materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <!-- estilos -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- nav con titulo -->
+    <header class="row">
+      <nav class="col s12 m10 l12 offset-m1 pink lighten-1">
+        <h5>My Little Secret</h5>
+      </nav>
     </header>
-    <hr>
 
-    <section id="instrucciones">
-      <h3>
-        Instruciones: <br> Esta es una aplicación que te permite cifrar mensajes que quieres que sean secretos para enviarlos junto con una clave numérica; la persona que lo recibe puede acceder a la página, copiar el mensaje en el recuadro de “Mensaje Secreto” y obtener el mensaje original en el recuadro de “Mensaje Original”
-      </h3>
-    </section>
+    <main>
+      <div class="row">
+        <!-- intro -->
+        <div class="col s12 m6">
+          <div class="card-panel teal amber lighten-4">
+            <span class="brown-text text-darken-2 flow-text">
+              ¿Planeando una fiesta? Ponerse de acuerdo para la ¡¡SUPER PARTY!! sin que el festejado o la festejada se enteren ya no es
+              un problema...
+            </span>
+          </div>
+        </div>
 
-    <section>
-      <div id = "cajaDeTextUno">
-        <p class = "icon-lock-open estilo">Aquí va el  mensaje original:</p> 
-        <textarea name="pDecodificada" id="palabraUno" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea>
-      </div>
-               
-      <div id = "cajaDeTextDos" >
-        <p class = "icon-lock estilo">Aqui va el mensaje secreto: </p> 
-        <textarea name="pCodificada" id="palabraDos" cols="30" rows="10" placeholder="Puedes escribir aquí" required></textarea>                    
-      </div>
-
-      <textarea id="hacker"></textarea>
-    </section>
-
-    <section id = "numeroyBotones">
-      <div>
-        <h3> Ingresa la clave numérica:</h3>
-        <input type="number" id="numero" min="1" max="1000" required>  
+        <!-- mensajes -->
+        <div class="col s12 m6">
+          <div class="card-panel teal amber lighten-4">
+            <span id="content">
+            </span>
+          </div>
+        </div>
       </div>
 
-      <div>
-        <form>
-          <input type ="button" class="botones" id = "encode" value = "Codificar">
-          <input type = "button"  class = "botones" id = "decode" value = "Decodificar">
-          <input value = "Borrar" class="botones" onclick = "history.go(0)" type="button">
-          <input type="button" class="botones" id="cipherWhitOffset" value="Hacker edit">
-        </form>
+      <div class="row">
+        <!-- reultado -->
+        <div class="">
+          <div class="col s10 m10 l8 offset-s1 offset-m1 offset-l2 card-panel teal amber lighten-4">
+            <p>
+              Lee, Copia, Pega y Manda:
+            </p>
+            <span id="result" class="brown-text text-darken-2 flow-text">
+            </span>
+          </div>
+        </div>
       </div>
 
-    </section>
-    
-    <div id="root"></div>
-    <script src="index.js"></script>
-    <script src="cipher.js"></script>
-    
-  </body>
+    </main>
+  </div>
+
+  </div>
+  <!-- materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <!-- script que conecta con funcionalidad -->
+  <script src="index.js"></script>
+  <script src="cipher.js"></script>
+</body>
+
 </html>
