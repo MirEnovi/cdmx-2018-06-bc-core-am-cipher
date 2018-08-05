@@ -54,6 +54,9 @@ button2.className = 'btn light-blue lighten-3 brown-text col s5 m4 offset-s1 off
 const containerButtons = document.createElement('div');
 containerButtons.className = 'row';
 
+// creacion de elemento para el resultado
+const labelResult = document.createElement('label');
+
 // Agregando elementos a div container
 containerButtons.appendChild(button1);
 containerButtons.appendChild(button2);
@@ -84,7 +87,10 @@ const encodeClick = () => {
       offset.value,
       string.value
     );
-    containerResult.innerHTML = resultEncode;
+    labelResult.value = '';
+    labelResult.className = 'brown-text text-darken-2 flow-text';
+    labelResult.innerHTML = resultEncode;
+    containerResult.appendChild(labelResult);
   } else {
     swal({
       type: 'error',
@@ -101,7 +107,11 @@ const decodeClick = () => {
       offset.value,
       stringB.value
     );
-    containerResult.innerHTML = resultDecode;
+    labelResult.value = '';
+    labelResult.className = 'brown-text text-darken-2 flow-text';
+    labelResult.innerHTML = resultDecode;
+    containerResult.appendChild(labelResult);
+    // containerResult.innerHTML = resultDecode;
   } else {
     swal({
       type: 'error',
