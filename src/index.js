@@ -43,16 +43,16 @@ offset.className = 'brown-text text-lighten-3';
 offset.type = 'number';
 
 // creacion de elementos para botones cifrar y decifrar
-// const button1 = document.createElement('button');
-// button1.innerHTML = 'Cifrar';
-// button1.style = 'font-weight: bold';
-// button1.className = 'btn light-blue lighten-3 brown-text col s5 m4 offset-s1 offset-m3';
-// const button2 = document.createElement('button');
-// button2.innerHTML = 'Deifrar';
-// button2.style = 'font-weight: bold';
-// button2.className = 'btn light-blue lighten-3 brown-text col s5 m4 offset-s1 offset-m1';
-// const containerButtons = document.createElement('div');
-// containerButtons.className = 'row';
+const button1 = document.createElement('button');
+button1.innerHTML = 'Cifrar';
+button1.style = 'font-weight: bold';
+button1.className = 'btn light-blue lighten-3 brown-text col s5 m4 offset-s1 offset-m3';
+const button2 = document.createElement('button');
+button2.innerHTML = 'Deifrar';
+button2.style = 'font-weight: bold';
+button2.className = 'btn light-blue lighten-3 brown-text col s5 m4 offset-s1 offset-m1';
+const containerButtons = document.createElement('div');
+containerButtons.className = 'row';
 
 // Agregando elementos a div container
 containerButtons.appendChild(button1);
